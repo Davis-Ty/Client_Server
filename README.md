@@ -1,39 +1,26 @@
 # Client_Server
-- Client/Server Programming
-			Requirements!!!
+- This Java program consists of a client-server application using sockets for communication.
 
+# Client (client.java):
 
-(start a thread for each client on the server side) [40 marks]		DONE
+- The client establishes a connection with the server using the localhost address and port 4999.
+- It reads user input from the console and sends it to the server.
+- The client continues sending input until the user types "END".
+- The client also listens for responses from the server and prints them to the console.
 
+# Server (server.java):
 
-client should be able to continuously send requests and receive
- replies from the server until a request "END" which terminates
- the connection with the server [30 marks].				DONE
+- The server listens on port 4999 for incoming client connections.
+- Upon accepting a connection, it creates a new thread (MultiClientHandler) to handle client requests concurrently.
+- The MultiClientHandler thread receives messages from the client, converts them to uppercase, reverses the words and letters, and sends the modified message back to the client.
+- The server continues listening for and processing client requests indefinitely.
 
+# MultiClientHandler (MultiClientHandler.java):
 
-The server will reverse and capitalize the sentence received 
-from the client [10 marks].						DONE
-
-
-(reversed and capitalized sentence) from the server on the 
-screen for user to verify [10 marks].					DONE
-
-
-comment your functions properly [5 marks].				DONE
-
-
-document how well you have completed the requirements and any
- issues or any particular requirements for your program to run
- [5 marks].							DONE
+- This class represents a thread responsible for handling communication with a single client.
+- It receives messages from the client, processes them (converts to uppercase, reverses words and letters), and sends the modified message back to the client.
+- Upon receiving the "END" message from the client, it closes the connection and terminates the thread.
+- This application demonstrates the use of sockets for establishing communication between a client and server, as well as multithreading to handle multiple client connections simultaneously. It showcases basic networking concepts and concurrent programming techniques in Java.
 
 
 
-
-
-The programmer has completed all of the requirements for the Client/Server programming
-assignment. The programmer inclued two outputs given that he did not know if his higher up
-wanted the program to return the sentence fully reversed or just reversed with the letters
-still facing the proper way.(Reverse is ambiguous) The programmer did the assignment quickly
-with the help of the TCPServer/TCPClient java file provided by Dr.An. However, I learned that
-the placement of the (while) loop in the creation of the server played a major roll in the
-output that the user views.
